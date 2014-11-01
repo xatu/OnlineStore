@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Confirmacion del producto</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputText value="Nombre: "/>
+                <h:outputText value="#{agregarManagedBean.producto.nombre}" />
+
+                <h:outputText value="Cantidad: "/>
+                <h:outputText value="#{agregarManagedBean.producto.cantidad}" />
+
+                <h:outputText value="Precio: "/>
+                <h:outputText value="#{agregarManagedBean.producto.precio}" />
+
+                <h:outputText value="Imagen: "/>
+                <p:graphicImage value="#{agregarManagedBean.producto.imagen}" />
+
+                <h:outputText value="Descripcion: "/>
+                <h:outputText escape="false" value="#{agregarManagedBean.producto.descripcion}" />
+            </h:panelGrid>            
+            <p:commandButton value="Volver" action="index"/>
+        </h:form>
+    </h:body>
+</html>
+

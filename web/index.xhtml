@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Agregar Producto</title>
+    </h:head>
+    <h:body>
+        <h1>Agregar Producto</h1>
+        <h:form enctype="multipart/form-data">
+            <h:panelGrid columns="2">
+                <h:outputText value="Nombre"/>
+                <p:inputText id="nombre" value="#{agregarManagedBean.producto.nombre}" />
+
+                <h:outputText value="Cantidad"/>
+                <p:inputText id="cantidad" value="#{agregarManagedBean.producto.cantidad}" />
+
+                <h:outputText value="Precio"/>
+                <p:inputText id="precio" value="#{agregarManagedBean.producto.precio}" />
+
+                <h:outputText value="Imagen"/>
+                <p:commandButton id="subir" value="Subir imagen"/> 
+                
+                <h:outputText value="Descripcion"/>
+                <p:editor width="500" height="250" id="descripcion" value="#{agregarManagedBean.producto.descripcion}" /> 
+            </h:panelGrid>
+            <p:commandButton id="agregar" value="Agregar" action="confirmacion" actionListener="#{agregarManagedBean.addProductos()}"/>
+        </h:form>
+    </h:body>    
+    <!-- Verificar el componente de subir imagen -->
+    <!-- Colocar tamaño via css -->
+</html>
+
