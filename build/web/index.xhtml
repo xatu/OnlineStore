@@ -2,33 +2,39 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Agregar Producto</title>
+      xmlns:p="http://primefaces.org/ui">    
+    <h:head>                     
+        <title>Agregar Producto</title>            
     </h:head>
-    <h:body>
+    <h:body>        
         <h1>Agregar Producto</h1>
-        <h:form enctype="multipart/form-data">
+        <h:form id="frmAgregaProducto" enctype="multipart/form-data">                        
             <h:panelGrid columns="2">
                 <h:outputText value="Nombre"/>
-                <p:inputText id="nombre" value="#{agregarManagedBean.producto.nombre}" />
+                <p:inputText id="nombre" value="#{productoManagedBean.producto.nombre}" />
 
                 <h:outputText value="Cantidad"/>
-                <p:inputText id="cantidad" value="#{agregarManagedBean.producto.cantidad}" />
+                <p:inputText id="cantidad" value="#{productoManagedBean.producto.cantidad}" />
 
                 <h:outputText value="Precio"/>
-                <p:inputText id="precio" value="#{agregarManagedBean.producto.precio}" />
+                <p:inputText id="precio" value="#{productoManagedBean.producto.precio}" />
 
                 <h:outputText value="Imagen"/>
-                <p:commandButton id="subir" value="Subir imagen"/> 
+                <p:fileUpload fileUploadListener="#{imagenBean.uploadFile}"              
+                              mode="advanced"
+                              label="Seleccione Foto (max.500Kb)"
+                              auto="true"                
+                              sizeLimit="500000"
+                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
                 
                 <h:outputText value="Descripcion"/>
-                <p:editor width="500" height="250" id="descripcion" value="#{agregarManagedBean.producto.descripcion}" /> 
+
+                <p:editor width="500" height="250" id="descripcion" value="#{productoManagedBean.producto.descripcion}" /> 
             </h:panelGrid>
-            <p:commandButton id="agregar" value="Agregar" action="confirmacion" actionListener="#{agregarManagedBean.addProductos()}"/>
-        </h:form>
-    </h:body>    
-    <!-- Verificar el componente de subir imagen -->
-    <!-- Colocar tamaño via css -->
+            <p:commandButton id="agregar" value="Agregar"
+                             action="confirmacion" ajax="false"
+                             actionListener="#{productoManagedBean.addProductos()}"/>
+        </h:form>        
+    </h:body>            
 </html>
 
